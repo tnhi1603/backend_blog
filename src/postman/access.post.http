@@ -2,7 +2,7 @@
 
 ###signup
 # POST http://localhost:5000/api/signup
-POST {{url_dev}}/signup
+POST {{url_dev}}/api/signup
 Content-Type: application/json
 
 {
@@ -12,6 +12,7 @@ Content-Type: application/json
 }
 
 ### Tạo bài viết mới
+# POST http://localhost:5000/post
 POST {{url_dev}}/post/create
 Content-Type: application/json
 
@@ -23,7 +24,21 @@ Content-Type: application/json
 }
 
 ### Lấy danh sách bài viết
-GET {{url_dev}}/posts
+GET {{url_dev}}/post
 
 ### Xóa bài viết
-DELETE {{url_dev}}/posts/660def7890123456ef901234
+DELETE {{url_dev}}/post/660def7890123456ef901234
+
+### send request
+POST {{url_dev}}/friend/send
+Content-Type: application/json
+
+{
+    "senderId": "67cd828dc4bc79ebd91328af",
+    "receiverId": "67cd82a58ddb6fb06773a838"
+}
+### accept
+PUT {{url_dev}}/friend/accept/67cd82a58ddb6fb06773a838
+
+### get friend
+GET {{url_dev}}/friend/list/67cd828dc4bc79ebd91328af
