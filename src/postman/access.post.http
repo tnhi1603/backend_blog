@@ -1,4 +1,4 @@
-@url_dev=http://localhost:5000/api
+@url_dev=http://localhost:5000/
 
 ###signup
 # POST http://localhost:5000/api/signup
@@ -7,6 +7,23 @@ Content-Type: application/json
 
 {
     "name": "mimi",
-    "email": "14@gmail.com",
+    "email": "1444@gmail.com",
     "password": "123456"
 }
+
+### Tạo bài viết mới
+POST {{url_dev}}/post/create
+Content-Type: application/json
+
+{
+    "user": "67e69a25d72a55939d02e408",
+    "content": "Hôm nay trời đẹp quá!",
+    "image": "uploads/posts/image.jpg",
+    "visibility": "public"
+}
+
+### Lấy danh sách bài viết
+GET {{url_dev}}/posts
+
+### Xóa bài viết
+DELETE {{url_dev}}/posts/660def7890123456ef901234
