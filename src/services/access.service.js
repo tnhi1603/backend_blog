@@ -38,7 +38,7 @@ class AccessService {
                 console.log(privateKey, publicKey); //save collection keystore
 
                 const publicKeyString = await keyTokenService.createKeyToken({
-                    userId: newShop._id,
+                    userId: newUser._id,
                     publicKey
                 });
     
@@ -50,7 +50,7 @@ class AccessService {
                 }
                 //create token pair
                 const tokens = await createTokenPair({
-                    userId: newShop._id,
+                    userId: newUser._id,
                     email},
                     publicKeyString,
                     privateKey
@@ -60,7 +60,7 @@ class AccessService {
                     code: '201',
                     message: 'Sign up successfully',
                     metadata: {
-                        shop: newShop,
+                        user: newUser,
                         tokens
                     }
                 }
