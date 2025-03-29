@@ -37,8 +37,48 @@ Content-Type: application/json
     "senderId": "67cd828dc4bc79ebd91328af",
     "receiverId": "67cd82a58ddb6fb06773a838"
 }
-### accept
-PUT {{url_dev}}/friend/accept/67cd82a58ddb6fb06773a838
+### accept - id request
+PUT {{url_dev}}/friend/accept/67e6a9d30f7e146560250f50
+
+### decline - id request
+PUT {{url_dev}}/friend/reject/67e6bbd1a9dddd1abb33268b
+
+### del friend
+DELETE {{url_dev}}/friend/unfriend
+Content-Type: application/json
+
+{
+    "userId1": "67cd82a58ddb6fb06773a838",
+    "userId2": "67cd828dc4bc79ebd91328af"
+}
 
 ### get friend
 GET {{url_dev}}/friend/list/67cd828dc4bc79ebd91328af
+
+### send message
+POST {{url_dev}}/message/send
+Content-Type: application/json
+
+{
+    "senderId": "660abc12345678ef90123456",
+    "receiverId": "660def7890123456ef901234",
+    "content": "Hello! Bạn khỏe không?",
+    "attachments": []
+}
+
+### get message
+GET {{url_dev}}/message/660abc12345678ef90123456/660def7890123456ef901234
+
+### del message
+DELETE {{url_dev}}/message/delete
+Content-Type: application/json
+
+{
+    "messageId": "661234abcd5678ef90123456",
+    "userId": "660abc12345678ef90123456"
+}
+
+### mark as read
+PUT {{url_dev}}/message/read/661234abcd5678ef90123456
+
+

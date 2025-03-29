@@ -20,17 +20,8 @@ const messageSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    attachments: [
-        {
-            fileName: String,  // Tên file
-            filePath: String,  // Đường dẫn lưu file cục bộ (VD: uploads/messages/)
-            fileType: String   // Loại file (image, video, document,...)
-        }
-    ],
-    seen: {
-        type: Boolean,
-        default: false
-    }
+    attachments: [{ type: String }],
+    seenAt: { type: Date, default: null }
 }, {
     timestamps: true,
     collection: COLLECTION_NAME
