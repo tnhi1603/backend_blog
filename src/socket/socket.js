@@ -41,6 +41,12 @@ const initializeSocket = (server) => {
             // Gửi tin nhắn realtime đến cả người gửi và người nhận
             io.emit(`receiveMessage-${message.receiverId}`, newMessage);
             io.emit(`receiveMessage-${message.senderId}`, newMessage);
+            io.emit(`notification-${receiverId}`, {
+                type: "newMessage",
+                message: `Bạn có tin nhắn mới từ ${senderId}: "${content}"`,
+                messageId: newMessage._id,
+                senderId
+            });
         });
 
         // Nhận sự kiện "Đã xem"

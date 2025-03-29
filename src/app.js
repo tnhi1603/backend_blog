@@ -7,6 +7,7 @@ const compression = require('compression');
 require('dotenv').config();
 const { initializeSocket } = require('./socket/socket');
 const server = http.createServer(app);
+const cors = require('cors');
 
 //init middleware
 app.use(morgan('dev'));
@@ -14,7 +15,7 @@ app.use(helmet());
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors());
 //init db
 require('./dbs/init.mongodb');
 const { checkOverload } = require('./helpers/check.connect');

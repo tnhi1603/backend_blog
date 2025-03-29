@@ -77,6 +77,53 @@ class AccessService {
             }
         }
     }
+
+    static login = async ({ email, password }) => {
+        try {
+            // Kiểm tra user có tồn tại không
+            const user = await userModel.findOne({ email });
+            if (!user) {
+                return {
+                    code: '400',
+                    message: 'User not found'
+                };
+            }
+
+            // Kiểm tra mật khẩu
+            const isMatch = await bcrypt.compare(password, user.password);
+            if (!isMatch) {
+                return {
+                    code: '401',
+                    message: 'Invalid credentials'
+                };
+            }
+
+            // Lấy publicKey đã lưu trong database
+            const keyStore = await keyTokenService.findByUserId(user._id);
+            if (!keyStore) {
+                return {
+                    code: '500',
+                    message: 'Key store not found'
+                };
+            }
+
+            // Tạo token mới
+            const tokens = await createTokenPair(
+                { userId: user._id, email },
+                keyStore.publicKey,
+                keyStore.privateKey
+            );
+
+            return {
+                code: '200',
+                message: 'Login successful',
+                metadata: { user, tokens }
+            };
+
+        } catch (err) {
+            return { code: '500', message: err.message, status: 'error' };
+        }
+    };
 }
 
 module.exports = AccessService;

@@ -60,25 +60,32 @@ POST {{url_dev}}/message/send
 Content-Type: application/json
 
 {
-    "senderId": "660abc12345678ef90123456",
-    "receiverId": "660def7890123456ef901234",
+    "senderId": "67cd82a58ddb6fb06773a838",
+    "receiverId": "67cd828dc4bc79ebd91328af",
     "content": "Hello! Bạn khỏe không?",
     "attachments": []
 }
 
 ### get message
-GET {{url_dev}}/message/660abc12345678ef90123456/660def7890123456ef901234
+GET {{url_dev}}/message/67cd82a58ddb6fb06773a838/67cd828dc4bc79ebd91328af
 
 ### del message
 DELETE {{url_dev}}/message/delete
 Content-Type: application/json
 
 {
-    "messageId": "661234abcd5678ef90123456",
-    "userId": "660abc12345678ef90123456"
+    "messageId": "67e6c8c3c6aec8ed6fb5b84c",
+    "userId": "67cd82a58ddb6fb06773a838"
 }
 
 ### mark as read
-PUT {{url_dev}}/message/read/661234abcd5678ef90123456
+PUT {{url_dev}}/message/read/67e6cfa132db3ff719152eea
+Content-Type: application/json
+
+{
+    "receiverId": "67cd828dc4bc79ebd91328af"
+}
+
+
 
 

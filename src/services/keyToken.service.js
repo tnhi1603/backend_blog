@@ -14,5 +14,8 @@ class keyTokenService {
             return err;
         }
     }
+    static async findByUserId(userId) {
+        return await keyTokenModel.findOne({ user: userId });
+    }
 }
 module.exports = keyTokenService;
