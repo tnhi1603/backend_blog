@@ -13,7 +13,7 @@ class AccessService {
             const holderShop = await userModel.findOne({email}).lean(); //lean dung de query nhanh hon tra ve object thuan
             if(holderShop) {
                 return {
-                    code: 'xxxx',
+                    code: '400',
                     message: 'Email already exists',
                 }
             }
