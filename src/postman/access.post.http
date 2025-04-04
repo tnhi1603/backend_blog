@@ -7,7 +7,16 @@ Content-Type: application/json
 
 {
     "name": "mimi",
-    "email": "1444@gmail.com",
+    "email": "11s@gmail.com",
+    "password": "123456"
+}
+
+###login
+POST {{url_dev}}/api/login
+Content-Type: application/json
+
+{
+    "email": "3s@gmail.com",
     "password": "123456"
 }
 

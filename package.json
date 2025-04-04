@@ -15,5 +15,9 @@
     "os": "^0.1.2",
     "process": "^0.11.10",
     "socket.io": "^4.8.1"
-  }
+  },
+  "scripts": {
+  "start": "node --watch server.js"
+}
+
 }
