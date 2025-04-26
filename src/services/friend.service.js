@@ -51,7 +51,7 @@ class FriendService {
         });
 
         if (!request) {
-            return { success: false, message: "Hai người không phải bạn bè" };
+            return { success: false, message: "Không phải bạn bè" };
         }
         return { success: true, message: "Đã hủy kết bạn" };
     }

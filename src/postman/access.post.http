@@ -38,6 +38,32 @@ GET {{url_dev}}/post
 ### Xóa bài viết
 DELETE {{url_dev}}/post/660def7890123456ef901234
 
+### Cập nhật bài viết
+PUT {{url_dev}}/post/
+Content-Type: application/json
+
+{
+  "content": "Nội dung bài viết đã được cập nhật",
+  "image": "https://example.com/new-image.jpg"
+}
+
+### Like hoặc Unlike bài viết
+PUT {{url_dev}}/post/ /like
+Content-Type: application/json
+
+{
+  "userId": "USER_ID_HERE"
+}
+
+### Thêm bình luận vào bài viết
+POST {{url_dev}}/post/ /comment
+Content-Type: application/json
+
+{
+  "userId": "USER_ID_HERE",
+  "content": "Bình luận mới cho bài viết này!"
+}
+
 ### send request
 POST {{url_dev}}/friend/send
 Content-Type: application/json

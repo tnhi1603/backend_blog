@@ -28,6 +28,20 @@ class PostController {
         const response = await PostService.updatePost(req.params.postId, req.body);
         res.status(response.success ? 200 : 500).json(response);
     }
+
+    async toggleLikePost(req, res) {
+        const { postId } = req.params;
+        const { userId } = req.body;  // userId truyền trong body
+        const response = await PostService.toggleLikePost(postId, userId);
+        res.status(response.success ? 200 : 500).json(response);
+    }
+
+    async commentPost(req, res) {
+        const { postId } = req.params;
+        const { userId, content } = req.body; // userId và nội dung bình luận trong body
+        const response = await PostService.commentPost(postId, { userId, content });
+        res.status(response.success ? 200 : 500).json(response);
+    }
 }
 
 module.exports = new PostController();
