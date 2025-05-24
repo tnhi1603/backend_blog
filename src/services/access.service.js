@@ -55,6 +55,13 @@ class AccessService {
                     publicKeyString,
                     privateKey
                 );
+                await keyTokenService.updateOrCreateKeyToken({
+                    userId: newUser._id,
+                    publicKey: publicKeyString,
+                    privateKey,
+                    refreshToken: tokens.refreshToken,
+                    accessToken: tokens.accessToken
+                });
                 console.log('tokens:', tokens);
                 return {
                     code: '201',

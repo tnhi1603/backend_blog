@@ -6,8 +6,8 @@ POST {{url_dev}}/api/signup
 Content-Type: application/json
 
 {
-    "name": "mimi",
-    "email": "11s@gmail.com",
+    "name": "minh",
+    "email": "ab@gmail.com",
     "password": "123456"
 }
 
@@ -16,7 +16,7 @@ POST {{url_dev}}/api/login
 Content-Type: application/json
 
 {
-    "email": "3s@gmail.com",
+    "email": "a@gmail.com",
     "password": "123456"
 }
 
@@ -39,7 +39,7 @@ GET {{url_dev}}/post
 DELETE {{url_dev}}/post/660def7890123456ef901234
 
 ### Cập nhật bài viết
-PUT {{url_dev}}/post/
+PUT {{url_dev}}/post/680cb188be0464271a246709
 Content-Type: application/json
 
 {
@@ -48,19 +48,19 @@ Content-Type: application/json
 }
 
 ### Like hoặc Unlike bài viết
-PUT {{url_dev}}/post/ /like
+PUT {{url_dev}}/post/680cb188be0464271a246709/like
 Content-Type: application/json
 
 {
-  "userId": "USER_ID_HERE"
+  "userId": "67cd7446efd74d8700330ecd"
 }
 
 ### Thêm bình luận vào bài viết
-POST {{url_dev}}/post/ /comment
+POST {{url_dev}}/post/680cb188be0464271a246709/comment
 Content-Type: application/json
 
 {
-  "userId": "USER_ID_HERE",
+  "userId": "67cd7446efd74d8700330ecd",
   "content": "Bình luận mới cho bài viết này!"
 }
 
@@ -122,5 +122,31 @@ Content-Type: application/json
 }
 
 
+### Lấy danh sách thông báo của user hiện tại (GET)
+GET {{url_dev}}/notification
+Authorization: Bearer {'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODMxNzk4ZmM0MDQzZTRmYzllZTIzZWMiLCJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNzQ4MDcyODQ4LCJleHAiOjE3NDgxNTkyNDh9.HnNPaXM3OyRFAkxe1WeAWpVWoEV_d-mWN-zw2VYXlLwP1Jf3N4NBRQb2zw2iUBK886MtwvQNC97hq26XNFc3Mh5iTh0frnxHEApGCkuliG0dOrAj-18b1TQKt7Do2i7QtUBy4Ct8Pvh9ut21zV7TzX3yMrdymOkpHQVI5f-ZqNVuFHjXgkmWrOEyG_1keT80nRrl83kS27pcW8wt-EDoI-o9-_Kn_6XvNxZomReJaKy-5KI_mNZhhmLZBF0VwjZNYxBDOU5Q_F_7xQKpnKvDioeTvjy8MQu4pmqtPUX66X5UWx2Nb2n52FccmsmLr_AFQPm2qQAbxx-R_7H2G17c73n7noY9B2kZqMI3BVS-leYGTmSLpPnEq_Y7Br_whlHN0r793FNHNLTWa7Tzy_pg1_FcWMJS8rO1BobX67_iUsPQowhRXHE1qfw7xG26TxGXpahwnNs3uMdb-lq7iUGxBZTCSU_3sVqoTMcNki_lp1n6o9Ak-pcFFBytFtcgYn6Y4demwid6kwRpsGzpIju54rJ3p4O-C9AWUgFiEGWRkJalbLNvHbhcnpKomko270BPKIWaqaTIaRZgHRv-b30zvq9UPI9TW6lTDhAIpTM1n1bwz59lzkIRGwV0BABNhYqAQTZIvEbjYeJ_sd4iDB-bVFGkxGwbL1WXP3ZGIdkwVts'}
+Content-Type: application/json
+
+###
+
+### Đánh dấu đã đọc một thông báo (PUT)
+PUT {{url_dev}}/api/notifications/66508b5d3e0f7b92efed1234/read
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+###
+
+### Tạo mới một thông báo (POST - cho mục đích thử nghiệm thủ công)
+POST {{url_dev}}/api/notifications
+Authorization: Bearer {{access_token}}
+Content-Type: application/json
+
+{
+  "recipient": "66508b5d3e0f7b92efed9999",
+  "sender": "66508b5d3e0f7b92efed7777",
+  "type": "like",
+  "post": "66508b5d3e0f7b92efed4444",
+  "content": "Ai đó đã thích bài viết của bạn"
+}
 
 

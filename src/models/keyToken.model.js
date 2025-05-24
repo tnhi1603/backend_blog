@@ -17,9 +17,14 @@ var keyTokenSchema = new Schema({
         type:String,
         required:true,
     },
+    privateKey:{
+        type:String
+    },
+    accessToken:{
+        type:String
+    }, //access token for user
     refreshToken:{
-        type:Array,
-        default:[]
+        type:Array
     }, //detect hacker use token???
 },{
     timestamps:true,
